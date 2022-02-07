@@ -1,0 +1,18 @@
+formatVersion: 1
+formatType: am-application
+---
+id:      'com.pelagicore.phone'
+icon:    'icon.png'
+code:    'Main.qml'
+runtime: 'qml'
+name:
+  en: 'Phone'
+  de: 'Telefon'
+  cs: 'Telefon'
+  ru: 'Телефон'
+  zh: '电话'
+  ja: '電話'
+  ko: '전화'
+
+applicationProperties: { private: { squishPort: 7728 } }
+categories: [ 'phone', 'widget' ]

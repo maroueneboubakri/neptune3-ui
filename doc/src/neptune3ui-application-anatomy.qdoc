@@ -1,0 +1,97 @@
+/****************************************************************************
+**
+** Copyright (C) 2019 Luxoft Sweden AB
+** Copyright (C) 2018 Pelagicore AG
+** Contact: https://www.qt.io/licensing/
+**
+** This file is part of the Neptune 3 IVI UI.
+**
+** $QT_BEGIN_LICENSE:FDL-QTAS$
+** Commercial License Usage
+** Licensees holding valid commercial Qt Automotive Suite licenses may use
+** this file in accordance with the commercial license agreement provided
+** with the Software or, alternatively, in accordance with the terms
+** contained in a written agreement between you and The Qt Company.  For
+** licensing terms and conditions see https://www.qt.io/terms-conditions.
+** For further information use the contact form at https://www.qt.io/contact-us.
+**
+** GNU Free Documentation License Usage
+** Alternatively, this file may be used under the terms of the GNU Free
+** Documentation License version 1.3 as published by the Free Software
+** Foundation and appearing in the file included in the packaging of
+** this file. Please review the following information to ensure
+** the GNU Free Documentation License version 1.3 requirements
+** will be met: https://www.gnu.org/licenses/fdl-1.3.html.
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
+/*!
+   \page neptune3ui-application-anatomy.html
+   \title Neptune 3 UI - Application Anatomy
+   \brief Anatomy of the applications in Center Console Display
+
+   In Neptune 3, an application can have both the full-screen state
+   and the (optional) widget state. The states should not be designed
+   separately since they need to be connected, if possible, with smooth
+   transitions.
+
+   \section1 Full-Screen
+
+   \image center-stack-maximized-app.jpg
+
+   When applications are in full-screen they typically have two main
+   content areas: top and bottom. The top area is for the most important
+   information, or information that is graphically complex. Try having the
+   same content and layout in the top area in full-screen vs. in a widget
+   (see more details in the widget section below). The bottom area is for
+   more detailed information. In most cases the content is divided into
+   different pages, navigated between with the tool bar to the left.
+
+   Design the bottom content spacious and do not mix different kinds of content.
+   If there are different kinds of content, please put them into different
+   sections with sufficient space in between.
+
+   \section2 Breaking the rules
+
+   Not every application should look the same. The best explaining cases are
+   probably Navigation and Camera apps since they include complex graphics.
+   Both applications need to look different from the default one,
+   but should give the same impression.
+
+   \image center-stack-nav.jpg
+
+   Some applications might not need to display the ToolBar, neither the top area.
+   Use a layout that fits the content of your application.
+
+   \section1 Widget
+
+   The widgets on the home screen can be resized into three sizes: 1-Row,
+   2-Rows and 3-Rows. Try to minimize and simplify the content of the widgets;
+   with up to five widgets on the home screen at the same time it tends to
+   look cluttered. Create larger widgets with more features for adding extra
+   value for the user.
+
+   \image widget-1-row.jpg
+
+   \image widget-2-rows.jpg
+
+   \image widget-3-rows.jpg
+
+   The widget content is generally designed along with the transitions between the three
+   states and of course widget and full-screen visuals. The top in full-screen should normally
+   look exactly like one of the widget sizes (1Row or 2Rows). The easiest way to
+   design a nice transitions when switching between the sizes is to think of blocks
+   ordered in a column, e.g. turn on/off blocks when the widget height changes.
+
+   To make the widgets look good together there are some recommended alignment
+   lines. Sometimes there are reasons not to use these lines, like in the
+   example of the circular contact image for phone widget which fits better with
+   the rectangular album art in the Music widget when it is slightly
+   larger than the default size.
+
+   \image music-widget-1-row.jpg
+
+   \image music-widget-3-rows.jpg
+
+*/

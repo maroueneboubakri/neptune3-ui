@@ -1,0 +1,20 @@
+formatVersion: 1
+formatType: am-application
+---
+id:      'com.theqtcompany.cluster'
+icon:    'icon.png'
+code:    'Main.qml'
+runtime: 'qml'
+runtimeParameters:
+    importPaths: [ '.' ]
+name:
+  en: 'Instrument Cluster'
+  de: 'Instrumentengruppe'
+  cs: 'Přístrojová deska'
+  ru: 'Приборный щиток'
+  zh: '仪表组'
+  ja: '計器クラスタ'
+  ko: '계기판'
+
+applicationProperties: { private: { squishPort: 7723 } }
+categories: [ 'cluster' ]

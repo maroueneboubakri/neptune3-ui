@@ -1,0 +1,18 @@
+formatVersion: 1
+formatType: am-application
+---
+id:      'com.pelagicore.calendar'
+icon:    'icon.png'
+code:    'Main.qml'
+runtime: 'qml'
+name:
+  en: 'Calendar'
+  de: 'Kalender'
+  cs: 'Kalendář'
+  ru: 'Календарь'
+  zh: '日历'
+  ja: 'カレンダー'
+  ko: '달력'
+
+applicationProperties: { private: { squishPort: 7721 } }
+categories: [ 'productivity', 'widget' ]

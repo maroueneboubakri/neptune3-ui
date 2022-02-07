@@ -1,0 +1,249 @@
+/****************************************************************************
+**
+** Copyright (C) 2019 Luxoft Sweden AB
+** Copyright (C) 2018 Pelagicore AG
+** Contact: https://www.qt.io/licensing/
+**
+** This file is part of the Neptune 3 IVI UI.
+**
+** $QT_BEGIN_LICENSE:FDL-QTAS$
+** Commercial License Usage
+** Licensees holding valid commercial Qt Automotive Suite licenses may use
+** this file in accordance with the commercial license agreement provided
+** with the Software or, alternatively, in accordance with the terms
+** contained in a written agreement between you and The Qt Company.  For
+** licensing terms and conditions see https://www.qt.io/terms-conditions.
+** For further information use the contact form at https://www.qt.io/contact-us.
+**
+** GNU Free Documentation License Usage
+** Alternatively, this file may be used under the terms of the GNU Free
+** Documentation License version 1.3 as published by the Free Software
+** Foundation and appearing in the file included in the packaging of
+** this file. Please review the following information to ensure
+** the GNU Free Documentation License version 1.3 requirements
+** will be met: https://www.gnu.org/licenses/fdl-1.3.html.
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
+/*!
+   \page neptune3ui-overview.html
+   \title Neptune 3 UI - Overview
+   \brief Overview of Neptune 3 User Interface
+
+   The Qt Automotive Suite includes Neptune 3 UI, which is a reference UI
+   implementation for Qt in In-Vehicle Infotainment (IVI) systems.
+
+   Neptune 3 UI aims to:
+
+   \list
+   \li Provide best practices for how to develop an automotive UI using
+       \l{Qt Automotive Suite}.
+   \li Get UI designers and software developers to collaborate efficiently.
+   \li Provide UI designers with methods to control the look-and-feel.
+   \li Improve flexibility by enabling
+       \l{Qt Automotive Suite Product} {Qt Automotive Suite} to integrate with
+       external tools, such as 3D tools, Maps, Qt IVI, and more.
+   \li Provide a multi-process UI that forms a base for an IVI system.
+   \endlist
+
+   \section1 Features
+
+   Neptune 3 UI contains the following key features:
+
+   \list
+   \li Implemented with with Qt/QML, based on \l{Qt Application Manager} that
+       takes care of the application and window management.
+   \li Can be integrated with various car 3D model technologies.
+   \li Can be integrated with various navigation solutions.
+   \li Utilizes the \l{Qt IVI} module, that provides C++ classes and QML types
+       to access vehicle features, as well as a core API to implement new IVI
+       features.
+   \endlist
+
+   \section1 Structure
+
+   To provide support for multi-process architecture, Neptune 3 UI comprises of
+   the following elements:
+
+   \table
+   \header
+       \li Neptune 3 UI element
+       \li Description
+   \row
+       \li \l{Neptune 3 UI - System UI}{System UI} (\c sysui)
+       \li Displays system information and provides a way to discover as well
+           as launch apps. Examples such as apps are the climate panel,
+           notification center, app launcher, status bar, and so on.
+   \row
+       \li Apps (\c apps)
+       \li A container for the various apps used within the System UI.
+   \row
+       \li Imports, modules (such as \c animations, \c controls, \c utils, or
+           \c models)
+       \li The modules, assets, and controls required for visual appearance as
+           well as functionalities - both for a System UI and an app.
+   \row
+       \li Plugins
+       \li QML plugins required for communication with low level services.
+   \row
+       \li Styles
+       \li UI styles and configurations.
+   \endtable
+
+   \section1 Neptune 3 UI Apps
+
+   Neptune 3 UI contains several built-in (pre-installed) apps:
+
+   \table
+   \header
+       \li Neptune 3 Apps
+       \li Description
+   \row
+       \li Vehicle App (\c vehicleapp)
+       \li Shows a 3D visualization of the car with its common settings and
+           information, such as vehicle settings, energy information, doors and
+           tires.
+   \row
+       \li Music App (\c musicapp)
+       \li A Media app that can play music that was previously indexed by
+           \l{Qt IVI} using the Qt Multimedia backend.
+   \row
+       \li \l{Neptune 3 UI - Maps App}{Maps App} (\c mapapp)
+       \li A Maps app that is created using the MapBoxGL plugin from Qt
+           Location that has some common navigation features, such as set a
+           destination, show the current location, and show the direction to
+           home or work from the current location. The Maps app can also be
+           viewed offline.
+   \row
+       \li Calendar App (\c calendarapp)
+       \li An organizer app with some dummy data showing a set of
+           appointments, the current year calendar and dummy weather forecast
+           with mockup data. Currently, there is no real backend implemented.
+           for this app.
+   \row
+       \li Phone App (\c phoneapp)
+       \li A Phone app with a dummy contact list, that can be simulated.
+           Currently, there is no real backend implemented for this app.
+   \row
+       \li Tuner App (\c tunerapp)
+       \li A media app that has a pre-set station list, provided by the
+           simulation backend from \l{Qt IVI}.
+   \row
+       \li Downloads App (\c downloadsapp)
+       \li Allows the user to install apps from the Neptune Deployment Store
+           to Neptune 3 UI. There are a few apps available, such as Spotify,
+           Netflix, Web Radio App, and Same Game. Users can also uninstall
+           these external apps using the Downloads app.
+   \row
+       \li \l{Neptune 3 UI - General Settings App}{General Settings}
+           \c settingsapp)
+       \li General Settings provides a set of common UI settings, such as
+           language settings, theme settings, date and time settings, as well
+           as color settings.
+   \endtable
+
+   \section1 Visual Concept
+
+   The Neptune 3 UI visual concept includes different UI elements:
+
+   \list
+    \li \l{Instrument Cluster}
+    \li \l{Center Console Display}
+    \li \l{App Launcher}
+    \li \l{App Widget}
+    \li \l{Climate Bar}
+    \li \l{Notification Center}
+   \endlist
+
+   \section2 Instrument Cluster
+
+   \image instrument-cluster.jpg
+
+   The Instrument Cluster displays driving related information such as speed,
+   cruise control parameters, gear and energy use (for an electric car). Users
+   can also have information from the selected app windows, such as Music or
+   Maps, ordered in views which they can navigate between. To switch
+   between the app windows available, the user can use Neptune 3 UI's remote
+   settings server or press \e{CTRL + c} in a physical keyboard.
+
+   \image instrument-cluster-nav.jpg
+
+   The size and position of gauges and other driving related information are
+   flexible to make space for views, like Maps that can take up more space
+   (as shown above).
+
+   \section2 Center Console Display
+
+   The Center Console display shows the multi-process capabilities; the fact
+   that we can run several apps simultaneously, with quick response and
+   smooth transitions. Even if, technically, we have different apps that run on
+   separate processes, the border between these apps is faded out. In turn, the
+   border between these apps and the System UI is also faded out, giving the
+   user an experience that this is one unified system.
+
+   \image center-stack.jpg
+
+   In addition to traditional apps, like Music, Phone, and Maps, the
+   Center Console display also contains climate settings, system notifications,
+   different vehicle information, and vehicle settings.
+
+   Some apps, such as Music, can be displayed in fullscreen or as widgets.
+   Widgets are apps that run in a smaller window and adapt their content to fit
+   into a widget window. These widgets are used in the customizable home screen.
+
+   When an app is maximized, it takes over the whole Center Console and shows
+   the app's full content, as illustrated below.
+
+   \image center-stack-maximized-app.jpg
+
+   \section2 App Launcher
+
+   Expand the App Launcher by tapping on the grid icon in the upper
+   right corner of the screen.
+
+   \image grid-icon.jpg
+
+   Users can choose which app to maximize by tapping on the app icon. Users
+   can also define four top apps to show without expanding the launcher by
+   pressing and holding the selected app, and then dragging it to the desired
+   position as illustrated in the following image:
+
+   \image center-stack-app-launcher.jpg
+
+   \section2 App Widget
+
+   By default, the \l{Center Console Display} shows three app widgets. Users can
+   choose which app to show on the home screen as a widget, by tapping on the
+   Add Widget icon below the lowest widget and choose the desired app.
+
+   \image center-stack-add-widget.jpg
+
+   Only apps that have a widget option are listed there. The user can also remove
+   a widget from the home screen by tapping on the X icon at the widget's
+   bottom left corner.
+
+   \note Removing an app widget does not mean that the app is terminated. The
+   app might still be running in the background. See
+   \l{Neptune 3 UI System Dialog} for more information about terminating an
+   app.
+
+   \section2 Climate Bar
+
+   \image center-stack-climate.jpg
+
+   The Climate Bar is located at the bottom of the \l{Center Console Display}.
+   Tapping on it displays a climate panel with some simulation data interface
+   to \l{Qt IVI} as shown in the following image:
+
+   \section2 Notification Center
+
+   \image center-stack-notification-center.jpg
+
+   The Notification Center stores notifications that are triggered in
+   Neptune 3 UI. When a notification is triggered, first, a notification toast
+   message is shown, and then it is stored in the Notification Center. The user
+   can remove individual notifications in the Notification Center, or clear the
+   Notification Center completely.
+
+*/

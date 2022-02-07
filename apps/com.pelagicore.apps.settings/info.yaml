@@ -1,0 +1,18 @@
+formatVersion: 1
+formatType: am-application
+---
+id:      'com.pelagicore.apps.settings'
+icon:    'icon.png'
+code:    'Main.qml'
+runtime: 'qml'
+name:
+  en: 'General Settings'
+  cs: 'Obecná nastavení'
+  de: 'Allgemeine Einstellungen'
+  ru: 'Общие настройки'
+  zh: '常规设置'
+  ja: '一般設定'
+  ko: '일반 설정'
+
+applicationProperties: { private: { squishPort: 7729 } }
+categories: [ 'app' ]
