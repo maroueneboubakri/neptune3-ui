@@ -84,6 +84,17 @@ Item {
         leftTurnOn: store.leftTurn
     }
 
+//patch
+	TelltalesCenterPanel {
+		//anchors.left: mainContent.left
+		anchors.horizontalCenter: mainContent.horizontalCenter
+		y: Sizes.dp(23)
+		width: Sizes.dp(444)
+		height: Sizes.dp(58)
+
+		warnToast: store.warnToast
+	}
+
     TelltalesRightPanel {
         anchors.right: mainContent.right
         anchors.rightMargin: Sizes.dp(111)

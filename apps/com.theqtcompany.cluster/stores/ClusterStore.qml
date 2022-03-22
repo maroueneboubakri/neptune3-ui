@@ -39,6 +39,9 @@ ClusterStoreInterface {
     readonly property InstrumentCluster clusterDataSource: InstrumentCluster {}
 
     navigationMode: clusterDataSource.navigationMode
+	//patch
+	warnToast: clusterDataSource.warnToast
+	//endpatch
     speed: clusterDataSource.speed
     speedLimit: clusterDataSource.speedLimit
     speedCruise: clusterDataSource.speedCruise

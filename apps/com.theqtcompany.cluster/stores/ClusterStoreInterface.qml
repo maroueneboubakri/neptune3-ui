@@ -38,6 +38,9 @@ Store {
     id: root
 
     property bool navigationMode
+	//patch
+	property string warnToast
+	//endpatch
     property real speed
     property real speedLimit
     property real speedCruise

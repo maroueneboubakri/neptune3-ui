@@ -28,6 +28,11 @@ interface UISettings {
 
 @config: {id: "InstrumentCluster"}
 interface InstrumentCluster {
+
+/* Patch*/
+  string warnToast;
+/* Endpatch*/
+
   /*
    * In Km/H
    */
