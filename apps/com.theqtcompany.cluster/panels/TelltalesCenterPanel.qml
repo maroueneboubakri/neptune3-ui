@@ -22,7 +22,7 @@ Item {
     //public
     property string warnToast
 	
-RowLayout {
+ColumnLayout  {
 	anchors.fill: parent
 
 /*****************/
@@ -56,7 +56,7 @@ Rectangle {
       * Private
       */
 
-    id: toaast
+    id: toastPopup
 
     readonly property real defaultTime: 3000
     property real time: defaultTime
@@ -70,19 +70,33 @@ Rectangle {
         margins: margin
     }
 
-    height: message.height + margin
+    height: message.height + icon.height + margin
     radius: margin
 
     opacity: 0
-    color: "#222222"
+    color: "#5E5954"
+
+	Image {
+		id: icon
+		// Support only emergency vehicle approaching notification
+		source: Utils.localAsset("emergency")
+		width:265
+		height:265
+		//anchors.centerIn: parent
+		anchors.horizontalCenter: parent.horizontalCenter
+		anchors.top: parent.top
+		//anchors.topMargin: margin
+	}
 
     Text {
         id: message
         color: "white"
+		font.pointSize: 9
+		//text: "Emergency vehicle approaching\nin 500m"
         wrapMode: Text.Wrap
         horizontalAlignment: Text.AlignHCenter
         anchors {
-            top: parent.top
+            top: icon.bottom
             left: parent.left
             right: parent.right
             margins: margin / 2
@@ -116,39 +130,14 @@ Rectangle {
     }
 
 }
-
-  
-
-/*****************/
-
-     Button {
-            id: simpleNotiButton
-            implicitWidth: Sizes.dp(500)
-            implicitHeight: Sizes.dp(64)
-            text: warnToast
-            onClicked: {
-                toaast.show("⚠ HOHOHOHOH !", 5000);
-				/*var notification1 = ApplicationInterface.createNotification();
-                notification1.summary = qsTr("Summary text: simple notification");
-                notification1.body = qsTr("Body text: simple notification");
-                notification1.showActionsAsIcons = true;
-                notification1.actions = [{"actionText": qsTr("Action Text")}];
-                notification1.show();
-				*/
-            }
-        }
-/*	
-    Label {
-        text: warnToast
-        font.pixelSize: 32
-        color: "black"
-    }
- */  
   
 }
 
 	onWarnToastChanged: {
-        toaast.show("⚠ HOHOHOHOH !!!", 5000);
-    }
+		if(warnToast != ""){
+			toastPopup.show("HOHOHOHO", 5000);
+		}
+		
+    }	
 	
 }
