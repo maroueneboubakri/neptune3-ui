@@ -135,9 +135,12 @@ Rectangle {
 
 	onWarnToastChanged: {
 		if(warnToast != ""){
-			toastPopup.show("HOHOHOHO", 5000);
+			// 0 -> warning type, to set icon accordingly
+			// 1 -> message to display
+			// 2 -> timestamp, unused yet
+			icon.source  = Utils.localAsset(warnToast.split(';')[0])
+			toastPopup.show(warnToast.split(';')[1], 5000);
 		}
-		
     }	
 	
 }
